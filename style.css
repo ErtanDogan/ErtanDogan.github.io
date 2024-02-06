@@ -1,4 +1,59 @@
 html {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  
+}
+
+body {
+  background-color: #e6e6e6;
+  font-family: serif;
+
+}
+
+.top{
+  background-color: rgb(255, 255, 255);
+  color: #262626;
+  /* outline: 2px rgb(45, 125, 174) solid; */
+  box-shadow: 3px 3px 5px #808080;
+  margin: 3px;
+  text-align: left;
+}
+.top h1 {
+  font-size: 30px;
+  padding: 5px;
+  
+}
+.top h3{
+  font-size: 16px;
+  padding: 5px;
+  color: dimgray;
+  
+}
+
+.main {
+  background-color: white;
+  color: #303030;
+  box-shadow: 3px 3px 5px #808080;
+  margin: 3px;
+  height: auto;
+}
+
+.main #content {
+  padding: 5px;
+}
+
+#button {
+  padding: 10px;
+  background-color: #80c1c6;
+  box-shadow: 3px 3px 4px gray;
+  text-align: center;
+  margin: 5px;
+  color: white;
+  
+}
+
+#button:hover{
+  background-color: #98d7dc;
+  color: #002f4d;
+  box-shadow: 0px 0px;
 }
