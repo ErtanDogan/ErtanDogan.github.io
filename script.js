@@ -1,15 +1,20 @@
-var main = document.querySelector(".main #content");
-main.textContent = "0 ";
+var main = document.querySelector(".main");
+var mainText = document.querySelector(".main #content");
+mainText.textContent = "0 ";
+
+var mainList = document.querySelector(".main #list");
+var textInput = document.querySelector(".mid #textInput");
 
 var btn = document.querySelector("#button");
 btn.style.height = "20px";
 var target = 0;
 var keyPressed = false;
 
+
 var counter = 0;
 var update = function(){
   counter++;
-  main.textContent += counter + " ";
+  mainText.textContent += counter + " ";
   
   if(counter >=  10){
     window.clearInterval(timer);
@@ -22,7 +27,7 @@ function randomColor(){
 
 var add = function(){
   counter++;
-  main.textContent += counter + " ";
+  mainText.textContent += counter + " ";
   main.style.backgroundColor = "rgb(" + randomColor()+","+ randomColor()+","+ randomColor() + ")";
   target = parseInt(btn.style.height) + 20;
   if(!keyPressed){
@@ -45,6 +50,21 @@ var shrink = function(){
   }
 }
 
+var addList = function(){
+  var text = textInput.value;
+  if(text == "clear" || text=="Clear"){
+    textInput.value = "";
+    mainList.innerHTML = "List:";
+  } else {
+    mainList.innerHTML += "<br>" + text;
+    textInput.value = "";
+  }
+  updateStorage();
+}
+
+var textInputListener = textInput.addEventListener("change", addList);
+
+
 
 var timer = window.setInterval(update, 500);
 
@@ -56,6 +76,24 @@ var buttonReset = window.addEventListener("keydown", function(event){
 var buttonReset2 = window.addEventListener("keyup", function(event){
   if(event.which == 16)
     keyPressed = false;
-})
+});
 
 
+//Fancy storage stuffies
+
+var updateStorage = function(){
+  localStorage.setItem("ListContent", mainList.innerHTML);
+}
+var useStorage = function(){
+  listContent = localStorage.getItem("ListContent");
+  mainList.innerHTML = listContent;
+}
+
+
+
+
+if(!localStorage.getItem("ListContent")){
+  updateStorage();
+} else {
+  useStorage();
+}
