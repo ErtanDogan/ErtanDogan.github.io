@@ -68,28 +68,49 @@ body {
 .main #content {
   padding: 5px;
 }
+.mid{
+  text-align: center;
+}
+.mid input{
+  width: 150px;
+  height: 20px;
+  border: 0px;
+  background-color: rgb(237, 250, 253);
+  transition: width 0.3s;
+
+  display: inline-block;
+}
+
+.mid input:hover{
+  outline: none;
+  width: 200px;
+  height: 30px;
+  transition: width 0.3s;
+
+}
+.mid input:focus{
+  outline: none;
+  width: 200px;
+  height: 30px;
+
+}
 
 #button {
   padding: 10px;
   background-color: #80c1c6;
   box-shadow: 3px 3px 4px gray;
   text-align: center;
-  margin: auto;
   color: white;
+  margin: auto;
   height: 20px;
   width: 50px;
   transition: width 0.3s;
 }
 
-
-
 #button:hover{
-  /* background-color: #98d7dc;
-  color: #002f4d; */
   color: white;
   box-shadow: 0px 0px;
   width: 200px;
-
   transition: width 0.3s;
-  
 }
+
