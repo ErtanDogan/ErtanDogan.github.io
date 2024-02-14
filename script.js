@@ -53,13 +53,16 @@ var shrink = function(){
 var addList = function(){
   var text = textInput.value;
   if(text == "clear" || text=="Clear"){
-    textInput.value = "";
     mainList.innerHTML = "List:";
-  } else {
+  } else if(text=="restore" || text=="Restore"){
+    useStorage();
+  } else if(text=="save"){
+    updateStorage();
+  }else {
     mainList.innerHTML += "<br>" + text;
-    textInput.value = "";
   }
-  updateStorage();
+  textInput.value = "";
+  
 }
 
 var textInputListener = textInput.addEventListener("change", addList);
@@ -88,6 +91,30 @@ var useStorage = function(){
   listContent = localStorage.getItem("ListContent");
   mainList.innerHTML = listContent;
 }
+
+var dataDisplay = document.querySelector(".main #data");
+var data = [];
+
+function updateServer(){
+  var url = `blank.json`;
+  var value = fetch(url);
+  dataDisplay.textContent = "Loading...";
+  value.then((val) => {
+    var jsonValue = val.json();
+    jsonValue.then((object)=>{
+      dataDisplay.textContent = "";
+      for(var i in object.values){
+        data.push(object.values[i]);
+      }
+      for(var i = 0; i < data.length; i++){
+        dataDisplay.innerHTML += data[i] + "<br>";
+      }
+    });
+  });
+
+}
+
+updateServer();
 
 
 
