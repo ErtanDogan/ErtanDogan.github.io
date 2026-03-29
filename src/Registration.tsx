@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify"
 import emailjs from "@emailjs/browser"
 
 async function handlePost({course, name, email}: {course:string, name:string, email:string}){
-    const APP_ID = 'AKfycbwBwZAirGOil0MX--0kepeeyLn-Z1TnxjAIm92l44aIBgsiCtU4AasZJR8TMuVOx05w'
+    const APP_ID = "${{ secrets.YOUR_SECRET_NAME }}${{ secrets.YOUR_SECRET_NAME }}"
     const baseURL = `https://script.google.com/macros/s/${APP_ID}/exec`
     
     try {
