@@ -66,11 +66,11 @@ export default function Registration({course} : {course:string}){
                                     theme: "light",
                                 })
 
-                                emailjs.send("${{secrets.Email_ID}}","${{secrets.Email_Template}}", {
+                                emailjs.send("${{secrets.EMAIL_SERVICE}}","${{secrets.EMAIL_TEMPLATE}}", {
                                     student: name,
                                     course: course,
                                     email: email
-                                }, {publicKey: "${{secrets.Email_Key}}"});
+                                }, {publicKey: "${{secrets.EMAIL_KEY}}"});
 
                                 changeDeleted(true)
                             } else {
